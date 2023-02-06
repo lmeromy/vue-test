@@ -11,7 +11,12 @@
       <label :for="id" class="checkbox-label">{{ label }}</label>
     </div>
     <div class="btn-group">
-      <button type="button" class="btn" @click="toggleToItemEditForm">
+      <button
+        type="button"
+        class="btn"
+        @click="toggleToItemEditForm"
+        ref="editButton"
+      >
         Edit <span class="visually-hidden">{{ label }}</span>
       </button>
       <button type="button" class="btn btn__danger" @click="deleteToDo">
@@ -56,6 +61,7 @@ export default {
       this.$emit("item-deleted");
     },
     toggleToItemEditForm() {
+        console.log(this.$refs.editButton);
       this.isEditing = true;
     },
     itemEdited(newLabel) {
